@@ -2,9 +2,14 @@ using ROCKET.RocketOrganizeBackend.Classroom.Application.Internal.CommandService
 using ROCKET.RocketOrganizeBackend.Classroom.Application.Internal.QueryServices;
 using ROCKET.RocketOrganizeBackend.Classroom.Infrastructure.Persistence;
 using ROCKET.RocketOrganizeBackend.Classroom.Infrastructure.Repositories;
+using ROCKET.RocketOrganizeBackend.Teacher.Application.Internal.CommandServices;
+using ROCKET.RocketOrganizeBackend.Teacher.Application.Internal.QueryServices;
+using ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Persistence;
+using ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Repositories;
 using ROCKET.RocketOrganizeBackend.Shared.Interfaces.ASP.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using ROCKET.RocketOrganizeBackend.Teacher.Application.Internal.CommandServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +18,23 @@ builder.Services.AddControllers(options => options.Conventions.Add(new KebabCase
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ClassroomContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+               .EnableSensitiveDataLogging()
+               .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+               .EnableDetailedErrors();
+    }
+});
+
+builder.Services.AddDbContext<TeacherContext>(options =>
 {
     options.UseMySQL(connectionString);
 
@@ -55,6 +77,10 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddScoped<ClassroomRepository>();
 builder.Services.AddScoped<ClassroomCommandService>();
 builder.Services.AddScoped<ClassroomQueryService>();
+
+builder.Services.AddScoped<TeacherQueryService>();
+builder.Services.AddScoped<TeacherCommandService>();
+builder.Services.AddScoped<TeacherRepository>();
 
 var app = builder.Build();
 

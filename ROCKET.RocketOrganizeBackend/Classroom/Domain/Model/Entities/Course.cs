@@ -1,4 +1,5 @@
 namespace ROCKET.RocketOrganizeBackend.Classroom.Domain.Model.Entities;
+using ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,4 +12,5 @@ public class Course
     public int IdSection { get; set; }
 
     public string Name { get; set; }
+    public ICollection<TeacherByCourse> TeacherByCourse { get; set; }
 }
