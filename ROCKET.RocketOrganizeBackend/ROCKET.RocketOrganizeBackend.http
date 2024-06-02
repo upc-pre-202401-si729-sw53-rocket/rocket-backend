@@ -1,0 +1,6 @@
+@ROCKET.RocketOrganizeBackend_HostAddress = http://localhost:5071
+
+GET {{ROCKET.RocketOrganizeBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
