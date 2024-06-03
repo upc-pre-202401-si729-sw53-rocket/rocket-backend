@@ -6,8 +6,8 @@ public class ClassroomContext : DbContext
 {
     public ClassroomContext(DbContextOptions<ClassroomContext> options) : base(options) { }
 
-    public DbSet<Pavilion> Pavilions { get; set; }
-    public DbSet<Floor> Floors { get; set; }
+    public DbSet<Attendance> Pavilions { get; set; }
+    public DbSet<Grade> Floors { get; set; }
     public DbSet<Classroom> Classrooms { get; set; }
     public DbSet<ClassroomByFloor> ClassroomsByFloor { get; set; }
     public DbSet<Course> Courses { get; set; }

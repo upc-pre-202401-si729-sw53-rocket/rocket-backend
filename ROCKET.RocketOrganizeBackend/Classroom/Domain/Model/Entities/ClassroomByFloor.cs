@@ -8,6 +8,6 @@ public class ClassroomByFloor
     public int FloorsIdFloor { get; set; }
     [ForeignKey("Floor")]
     public int ClassroomsIdClassroom { get; set; }
-    public Floor Floor { get; set; }
+    public Grade Grade { get; set; }
     public Classroom Classroom { get; set; }
 }
