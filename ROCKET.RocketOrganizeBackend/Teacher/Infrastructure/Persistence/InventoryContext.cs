@@ -1,6 +1,7 @@
 namespace ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Persistence;
 using ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using ROCKET.RocketOrganizeBackend.Classroom.Domain.Model.Entities;
+using ROCKET.RocketOrganizeBackend.Student.Domain.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 
 public class InventoryContext : DbContext
@@ -14,6 +15,7 @@ public class InventoryContext : DbContext
     public DbSet<InventoryRequest> InventoryRequests { get; set; }
     public DbSet<TeacherByCourse> TeachersByCourse { get; set; }
     public DbSet<Course> Courses { get; set; }
+    public DbSet<Guardian> Guardians { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -6,6 +6,10 @@ using ROCKET.RocketOrganizeBackend.Teacher.Application.Internal.CommandServices;
 using ROCKET.RocketOrganizeBackend.Teacher.Application.Internal.QueryServices;
 using ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Persistence;
 using ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Repositories;
+using ROCKET.RocketOrganizeBackend.Student.Application.Internal.CommandServices;
+using ROCKET.RocketOrganizeBackend.Student.Application.Internal.QueryServices;
+using ROCKET.RocketOrganizeBackend.Student.Infrastructure.Persistence;
+using ROCKET.RocketOrganizeBackend.Student.Infrastructure.Repositories;
 using ROCKET.RocketOrganizeBackend.Shared.Interfaces.ASP.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -153,6 +157,23 @@ builder.Services.AddDbContext<InfrastructureReportContext>(options =>
     }
 });
 
+builder.Services.AddDbContext<GuardianContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
+    }
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -208,11 +229,16 @@ builder.Services.AddScoped<InfrastructureReportQueryService>();
 builder.Services.AddScoped<InfrastructureReportCommandService>();
 builder.Services.AddScoped<InfrastructureReportRepository>();
 
+builder.Services.AddScoped<GuardianQueryService>();
+builder.Services.AddScoped<GuardianCommandService>();
+builder.Services.AddScoped<GuardianRepository>();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
+    
     var context = services.GetRequiredService<ClassroomContext>();
     context.Database.EnsureCreated();
 }

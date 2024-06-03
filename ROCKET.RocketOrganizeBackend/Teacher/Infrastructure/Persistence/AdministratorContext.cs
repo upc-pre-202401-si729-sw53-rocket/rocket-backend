@@ -1,6 +1,7 @@
 namespace ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Persistence;
 using ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using ROCKET.RocketOrganizeBackend.Classroom.Domain.Model.Entities;
+using ROCKET.RocketOrganizeBackend.Student.Domain.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 
 public class AdministratorContext : DbContext
@@ -14,6 +15,7 @@ public class AdministratorContext : DbContext
     public DbSet<InventoryRequest> InventoryRequests { get; set; }
     public DbSet<TeacherByCourse> TeachersByCourse { get; set; }
     public DbSet<Course> Courses { get; set; }
+    public DbSet<Attendance> Attendances { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -54,5 +56,12 @@ public class AdministratorContext : DbContext
             .HasOne(tc => tc.Course)
             .WithMany(c => c.TeacherByCourse)
             .HasForeignKey(tc => new { tc.CourseId, tc.SectionId });
+        
+        modelBuilder.Entity<Attendance>()
+            .HasOne(a => a.Course)
+            .WithMany() // Indica que un curso puede tener muchas asistencias
+            .HasForeignKey(a => a.CourseId); // Establece la clave externa para CourseId
+
+        
     }
 }
