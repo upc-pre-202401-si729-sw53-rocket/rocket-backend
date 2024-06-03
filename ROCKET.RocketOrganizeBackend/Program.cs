@@ -51,7 +51,7 @@ builder.Services.AddDbContext<CourseContext>(options =>
     }
 });
 
-builder.Services.AddDbContext<PavilionContext>(options =>
+builder.Services.AddDbContext<AttendanceContext>(options =>
 {
     options.UseMySQL(connectionString);
 
@@ -68,7 +68,7 @@ builder.Services.AddDbContext<PavilionContext>(options =>
     }
 });
 
-builder.Services.AddDbContext<FloorContext>(options =>
+builder.Services.AddDbContext<GradeContext>(options =>
 {
     options.UseMySQL(connectionString);
 
@@ -184,13 +184,13 @@ builder.Services.AddScoped<CourseRepository>();
 builder.Services.AddScoped<CourseCommandService>();
 builder.Services.AddScoped<CourseQueryService>();
 
-builder.Services.AddScoped<PavilionRepository>();
-builder.Services.AddScoped<PavilionCommandService>();
-builder.Services.AddScoped<PavilionQueryService>();
+builder.Services.AddScoped<AttendanceRepository>();
+builder.Services.AddScoped<AttendanceCommandService>();
+builder.Services.AddScoped<AttendanceQueryService>();
 
-builder.Services.AddScoped<FloorRepository>();
-builder.Services.AddScoped<FloorCommandService>();
-builder.Services.AddScoped<FloorQueryService>();
+builder.Services.AddScoped<GradeRepository>();
+builder.Services.AddScoped<GradeCommandService>();
+builder.Services.AddScoped<GradeQueryService>();
 
 builder.Services.AddScoped<TeacherQueryService>();
 builder.Services.AddScoped<TeacherCommandService>();

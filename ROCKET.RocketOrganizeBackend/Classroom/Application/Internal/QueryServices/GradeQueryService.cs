@@ -4,22 +4,22 @@ using ROCKET.RocketOrganizeBackend.Classroom.Infrastructure.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-public class FloorQueryService
+public class GradeQueryService
 {
-    private readonly FloorRepository _repository;
+    private readonly GradeRepository _repository;
 
-    public FloorQueryService(FloorRepository repository)
+    public GradeQueryService(GradeRepository repository)
     {
         _repository = repository;
     }
 
-    public async Task<IEnumerable<Floor>> GetAllFloorsAsync()
+    public async Task<IEnumerable<Grade>> GetAllGradesAsync()
     {
-        return await _repository.GetAllFloorsAsync();
+        return await _repository.GetAllGradesAsync();
     }
 
-    public async Task<Floor> GetFloorByIdAsync(int id)
+    public async Task<Grade> GetGradeByIdAsync(int id)
     {
-        return await _repository.GetFloorByIdAsync(id);
+        return await _repository.GetGradeByIdAsync(id);
     }
 }
