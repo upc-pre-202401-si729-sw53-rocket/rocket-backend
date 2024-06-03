@@ -16,6 +16,6 @@ public class Grade
     [JsonIgnore]
     [ForeignKey("Pavilion")]
     public int PavilionsIdPavilion { get; set; }
-    [JsonIgnore]
+    [JsonIgnore]    
     public Attendance Attendance { get; set; }
 }
