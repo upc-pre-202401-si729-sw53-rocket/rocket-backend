@@ -2,6 +2,7 @@ namespace ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+[Table("inventories")]
 public class Inventory
 {
     [Key]

@@ -10,7 +10,7 @@ public class TeacherQueryService
 
     public TeacherQueryService(TeacherRepository repository)
     {
-        this.repository = repository;  // Corregido
+        this.repository = repository;
     }
 
     public async Task<IEnumerable<Teacher>> GetAllTeachersAsync()

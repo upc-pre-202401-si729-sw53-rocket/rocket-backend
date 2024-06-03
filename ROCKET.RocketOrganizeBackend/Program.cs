@@ -34,6 +34,57 @@ builder.Services.AddDbContext<ClassroomContext>(options =>
     }
 });
 
+builder.Services.AddDbContext<CourseContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
+    }
+});
+
+builder.Services.AddDbContext<PavilionContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
+    }
+});
+
+builder.Services.AddDbContext<FloorContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
+    }
+});
+
 builder.Services.AddDbContext<TeacherContext>(options =>
 {
     options.UseMySQL(connectionString);
@@ -48,6 +99,57 @@ builder.Services.AddDbContext<TeacherContext>(options =>
     {
         options.LogTo(Console.WriteLine, LogLevel.Error)
                .EnableDetailedErrors();
+    }
+});
+
+builder.Services.AddDbContext<AdministratorContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
+    }
+});
+
+builder.Services.AddDbContext<InventoryContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
+    }
+});
+
+builder.Services.AddDbContext<InfrastructureReportContext>(options =>
+{
+    options.UseMySQL(connectionString);
+
+    if (builder.Environment.IsDevelopment())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Information)
+            .EnableSensitiveDataLogging()
+            .EnableDetailedErrors();
+    }
+    else if (builder.Environment.IsProduction())
+    {
+        options.LogTo(Console.WriteLine, LogLevel.Error)
+            .EnableDetailedErrors();
     }
 });
 
@@ -78,9 +180,33 @@ builder.Services.AddScoped<ClassroomRepository>();
 builder.Services.AddScoped<ClassroomCommandService>();
 builder.Services.AddScoped<ClassroomQueryService>();
 
+builder.Services.AddScoped<CourseRepository>();
+builder.Services.AddScoped<CourseCommandService>();
+builder.Services.AddScoped<CourseQueryService>();
+
+builder.Services.AddScoped<PavilionRepository>();
+builder.Services.AddScoped<PavilionCommandService>();
+builder.Services.AddScoped<PavilionQueryService>();
+
+builder.Services.AddScoped<FloorRepository>();
+builder.Services.AddScoped<FloorCommandService>();
+builder.Services.AddScoped<FloorQueryService>();
+
 builder.Services.AddScoped<TeacherQueryService>();
 builder.Services.AddScoped<TeacherCommandService>();
 builder.Services.AddScoped<TeacherRepository>();
+
+builder.Services.AddScoped<AdministratorQueryService>();
+builder.Services.AddScoped<AdministratorCommandService>();
+builder.Services.AddScoped<AdministratorRepository>();
+
+builder.Services.AddScoped<InventoryQueryService>();
+builder.Services.AddScoped<InventoryCommandService>();
+builder.Services.AddScoped<InventoryRepository>();
+
+builder.Services.AddScoped<InfrastructureReportQueryService>();
+builder.Services.AddScoped<InfrastructureReportCommandService>();
+builder.Services.AddScoped<InfrastructureReportRepository>();
 
 var app = builder.Build();
 

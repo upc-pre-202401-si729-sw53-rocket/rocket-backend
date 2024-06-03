@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,7 +14,11 @@ public class Teacher
     public string MaternalSurname { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
-    public ICollection<InfrastructureReport> InfrastructureReport { get; set; }
-    public ICollection<InventoryRequest> InventoryRequest { get; set; }
-    public ICollection<TeacherByCourse> TeacherByCourse { get; set; }
+    
+    [JsonIgnore]
+    public ICollection<InfrastructureReport> InfrastructureReport { get; set; } = new List<InfrastructureReport>();
+    [JsonIgnore]
+    public ICollection<InventoryRequest> InventoryRequest { get; set; } = new List<InventoryRequest>();
+    [JsonIgnore]
+    public ICollection<TeacherByCourse> TeacherByCourse { get; set; } = new List<TeacherByCourse>();
 }

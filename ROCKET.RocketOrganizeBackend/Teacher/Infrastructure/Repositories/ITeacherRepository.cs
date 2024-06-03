@@ -1,4 +1,3 @@
-
 namespace ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Repositories;
 using ROCKET.RocketOrganizeBackend.Teacher.Infrastructure.Repositories;
 using ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;

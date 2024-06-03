@@ -58,7 +58,7 @@ public class TeacherController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTeacher(int id)
     {
-        await commandService.DeleteTeacherAsync(id);  // Corregido
+        await commandService.DeleteTeacherAsync(id);
         return NoContent();
     }
 }

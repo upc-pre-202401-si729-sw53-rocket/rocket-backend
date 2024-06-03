@@ -9,7 +9,7 @@ public class TeacherCommandService
 
     public TeacherCommandService(TeacherRepository repository)
     {
-        this.repository = repository;  // Corregido
+        this.repository = repository;
     }
 
     public async Task AddTeacherAsync(Teacher teacher)
