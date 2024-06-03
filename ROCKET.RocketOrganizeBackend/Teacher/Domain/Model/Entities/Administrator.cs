@@ -2,7 +2,6 @@ namespace ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("administrators")]
 public class Administrator
 {
     [Key]
@@ -12,4 +11,5 @@ public class Administrator
     public string MaternalSurname { get; set; }
     public string Email { get; set; }
     public string Phone { get; set; }
+    public List<InventoryRequest> InventoryRequests { get; set; }
 }

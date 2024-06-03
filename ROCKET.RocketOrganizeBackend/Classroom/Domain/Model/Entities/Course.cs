@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using ROCKET.RocketOrganizeBackend.Student.Domain.Model.Entities;
 
 namespace ROCKET.RocketOrganizeBackend.Classroom.Domain.Model.Entities;
 using ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
@@ -9,12 +10,11 @@ public class Course
 {
     [Key]
     public int IdCourse { get; set; }
-
-    [ForeignKey("Section")]
+    [Key]
     public int IdSection { get; set; }
-
     public string Name { get; set; }
-    
-    [JsonIgnore]
-    public ICollection<TeacherByCourse> TeacherByCourse { get; set; } = new List<TeacherByCourse>();
+    public List<ClassroomByCourse> ClassroomsByCourse { get; set; }
+    public List<TeacherByCourse> TeacherByCourses { get; set; }
+    public List<Grade> Grades { get; set; }
+    public List<Attendance> Attendances { get; set; }
 }

@@ -5,9 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class ClassroomByFloor
 {
     [Key]
-    public int FloorsIdFloor { get; set; }
-    [ForeignKey("Floor")]
-    public int ClassroomsIdClassroom { get; set; }
+    [Column(Order = 0)]
+    public int FloorId { get; set; }
+    [Key]
+    [Column(Order = 1)]
+    public int ClassroomId { get; set; }
     public Floor Floor { get; set; }
     public Classroom Classroom { get; set; }
 }

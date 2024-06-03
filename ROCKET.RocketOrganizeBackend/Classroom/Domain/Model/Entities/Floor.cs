@@ -6,7 +6,8 @@ public class Floor
 {
     [Key]
     public int IdFloor { get; set; }
-    [ForeignKey("Pavilion")]
-    public int PavilionsIdPavilion { get; set; }
+    public int PavilionId { get; set; }
+    [ForeignKey("PavilionId")]
     public Pavilion Pavilion { get; set; }
+    public List<ClassroomByFloor> ClassroomsByFloor { get; set; }
 }

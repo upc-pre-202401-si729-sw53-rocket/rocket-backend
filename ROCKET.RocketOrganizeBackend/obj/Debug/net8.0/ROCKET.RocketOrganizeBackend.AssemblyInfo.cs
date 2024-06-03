@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ROCKET.RocketOrganizeBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c1df31b3142b8af5582cf16e6d7e31a77d4febe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1675a5ddd086028946a199e94644ee0192cde52")]
 [assembly: System.Reflection.AssemblyProductAttribute("ROCKET.RocketOrganizeBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ROCKET.RocketOrganizeBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

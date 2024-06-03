@@ -7,4 +7,5 @@ public class Pavilion
     [Key]
     public int IdPavilion { get; set; }
     public string Name { get; set; }
+    public List<Floor> Floors { get; set; }
 }

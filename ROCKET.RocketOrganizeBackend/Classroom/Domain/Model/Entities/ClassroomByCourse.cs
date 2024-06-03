@@ -5,16 +5,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class ClassroomByCourse
 {
     [Key]
-    public int Id { get; set; }
-
-    [ForeignKey("Classroom")]
-    public int ClassroomsIdClassroom { get; set; }
-
-    [ForeignKey("Course")]
-    public int CoursesIdCourse { get; set; }
-
-    public int CoursesIdSection { get; set; }
-
+    [Column(Order = 0)]
+    public int ClassroomId { get; set; }
+    [Key]
+    [Column(Order = 1)]
+    public int CourseId { get; set; }
+    [Key]
+    [Column(Order = 2)]
+    public int SectionId { get; set; }
     public Classroom Classroom { get; set; }
     public Course Course { get; set; }
 }

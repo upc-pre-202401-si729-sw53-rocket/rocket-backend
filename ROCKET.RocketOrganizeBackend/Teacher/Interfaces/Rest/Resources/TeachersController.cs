@@ -41,13 +41,13 @@ public class TeacherController : ControllerBase
     public async Task<ActionResult<Teacher>> PostTeacher(Teacher teacher)
     {
         await commandService.AddTeacherAsync(teacher);
-        return CreatedAtAction(nameof(GetTeacher), new { id = teacher.Id }, teacher);
+        return CreatedAtAction(nameof(GetTeacher), new { id = teacher.IdTeacher }, teacher);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> PutTeacher(int id, Teacher teacher)
     {
-        if (id != teacher.Id)
+        if (id != teacher.IdTeacher)
         {
             return BadRequest();
         }

@@ -12,4 +12,23 @@ public class ClassroomContext : DbContext
     public DbSet<ClassroomByFloor> ClassroomsByFloor { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<ClassroomByCourse> ClassroomsByCourse { get; set; }
+    
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        
+        modelBuilder.Entity<Course>()
+            .HasKey(c => new { c.IdCourse, c.IdSection });
+        
+        modelBuilder.Entity<Floor>()
+            .HasOne(f => f.Pavilion)
+            .WithMany(p => p.Floors)
+            .HasForeignKey(f => f.PavilionId);
+        
+        modelBuilder.Entity<ClassroomByFloor>()
+            .HasKey(cf => new { cf.FloorId, cf.ClassroomId });
+
+        modelBuilder.Entity<ClassroomByCourse>()
+            .HasKey(cc => new { cc.ClassroomId, cc.CourseId, cc.SectionId });
+    }
 }

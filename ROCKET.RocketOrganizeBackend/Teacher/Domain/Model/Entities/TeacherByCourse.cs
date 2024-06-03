@@ -6,18 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 public class TeacherByCourse
 {
     [Key]
-    public int Id { get; set; }
-    
-    [ForeignKey("Course")]
+    public int IdTeacherByCourse { get; set; }
     public int CourseId { get; set; }
     public int SectionId { get; set; }
-
-    [ForeignKey("Teacher")]
     public int TeacherId { get; set; }
-    
-    [InverseProperty("TeacherByCourse")]
-    public Teacher Teacher { get; set; }
-    
-    [InverseProperty("TeacherByCourse")]
+
+    [ForeignKey("CourseId")]
     public Course Course { get; set; }
+    [ForeignKey("SectionId")]
+    public Teacher Teacher { get; set; }
 }

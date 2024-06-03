@@ -8,4 +8,6 @@ public class Classroom
     public int IdClassroom { get; set; }
     public int Capacity { get; set; }
     public int Slots { get; set; }
+    public List<ClassroomByFloor> ClassroomsByFloor { get; set; }
+    public List<ClassroomByCourse> ClassroomsByCourse { get; set; }
 }

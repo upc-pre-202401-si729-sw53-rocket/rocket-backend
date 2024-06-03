@@ -1,18 +1,18 @@
-namespace ROCKET.RocketOrganizeBackend.Student.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
+
+namespace ROCKET.RocketOrganizeBackend.Student.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("studentbyguardian")]
 public class StudentByGuardian
 {
     [Key]
-    public int Id { get; set; }
-    
-    [ForeignKey("Student")]
+    public int IdStudentByGuardian { get; set; }
     public int StudentId { get; set; }
+    public int GuardianId { get; set; }
+
+    [ForeignKey("StudentId")]
     public Student Student { get; set; }
 
-    [ForeignKey("Guardian")]
-    public int GuardianId { get; set; }
+    [ForeignKey("GuardianId")]
     public Guardian Guardian { get; set; }
 }

@@ -18,43 +18,58 @@ public class TeacherContext : DbContext
     public DbSet<Guardian> Guardians { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
+        {
+            base.OnModelCreating(modelBuilder);
+            
 
-        // Configure primary keys
-        modelBuilder.Entity<Course>().HasKey(c => new { c.IdCourse, c.IdSection });
-        modelBuilder.Entity<TeacherByCourse>().HasKey(tc => new { tc.Id });
-        modelBuilder.Entity<InventoryRequest>().HasKey(ir => new { ir.Id, ir.InventoryId, ir.TeacherId, ir.AdministratorId });
+            // InfrastructureReport
+            modelBuilder.Entity<InfrastructureReport>()
+                .HasKey(ir => ir.IdInfrastructureReport);
 
-        // Configure relationships, foreign keys, etc. if needed
-        modelBuilder.Entity<InfrastructureReport>()
-            .HasOne(ir => ir.Teacher)
-            .WithMany(t => t.InfrastructureReport) 
-            .HasForeignKey(ir => ir.TeacherId);
+            modelBuilder.Entity<InfrastructureReport>()
+                .HasOne(ir => ir.Teacher)
+                .WithMany(t => t.InfrastructureReports)
+                .HasForeignKey(ir => ir.TeacherId);
 
-        modelBuilder.Entity<InventoryRequest>()
-            .HasOne(ir => ir.Inventory)
-            .WithMany()
-            .HasForeignKey(ir => ir.InventoryId);
+            // Inventory
+            modelBuilder.Entity<Inventory>()
+                .HasKey(i => i.IdInventory);
 
-        modelBuilder.Entity<InventoryRequest>()
-            .HasOne(ir => ir.Teacher)
-            .WithMany(t => t.InventoryRequest)
-            .HasForeignKey(ir => ir.TeacherId);
+            // Administrator
+            modelBuilder.Entity<Administrator>()
+                .HasKey(a => a.IdAdministrator);
 
-        modelBuilder.Entity<InventoryRequest>()
-            .HasOne(ir => ir.Administrator)
-            .WithMany()
-            .HasForeignKey(ir => ir.AdministratorId);
+            // InventoryRequest
+            modelBuilder.Entity<InventoryRequest>()
+                .HasKey(ir => new { ir.DateTime, ir.InventoryId, ir.TeacherId, ir.AdministratorId });
 
-        modelBuilder.Entity<TeacherByCourse>()
-            .HasOne(tc => tc.Teacher)
-            .WithMany(t => t.TeacherByCourse)
-            .HasForeignKey(tc => tc.TeacherId);
+            modelBuilder.Entity<InventoryRequest>()
+                .HasOne(ir => ir.Inventory)
+                .WithMany(i => i.InventoryRequests)
+                .HasForeignKey(ir => ir.InventoryId);
 
-        modelBuilder.Entity<TeacherByCourse>()
-            .HasOne(tc => tc.Course)
-            .WithMany(c => c.TeacherByCourse)
-            .HasForeignKey(tc => new { tc.CourseId, tc.SectionId });
-    }
+            modelBuilder.Entity<InventoryRequest>()
+                .HasOne(ir => ir.Teacher)
+                .WithMany(t => t.InventoryRequests)
+                .HasForeignKey(ir => ir.TeacherId);
+
+            modelBuilder.Entity<InventoryRequest>()
+                .HasOne(ir => ir.Administrator)
+                .WithMany(a => a.InventoryRequests)
+                .HasForeignKey(ir => ir.AdministratorId);
+
+            // TeacherByCourse
+            modelBuilder.Entity<TeacherByCourse>()
+                .HasKey(tc => new { tc.CourseId, tc.SectionId, tc.TeacherId });
+
+            modelBuilder.Entity<TeacherByCourse>()
+                .HasOne(tc => tc.Teacher)
+                .WithMany(t => t.TeachersByCourse)
+                .HasForeignKey(tc => tc.TeacherId);
+
+            modelBuilder.Entity<TeacherByCourse>()
+                .HasOne(tc => tc.Course)
+                .WithMany(c => c.TeacherByCourses)
+                .HasForeignKey(tc => new { tc.CourseId, tc.SectionId });
+        }
 }

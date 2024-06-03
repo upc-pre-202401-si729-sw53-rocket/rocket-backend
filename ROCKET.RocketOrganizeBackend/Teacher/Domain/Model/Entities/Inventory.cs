@@ -11,4 +11,6 @@ public class Inventory
     public string Description { get; set; }
     public int Quantity { get; set; }
     public int Available { get; set; }
+
+    public List<InventoryRequest> InventoryRequests { get; set; }
 }
