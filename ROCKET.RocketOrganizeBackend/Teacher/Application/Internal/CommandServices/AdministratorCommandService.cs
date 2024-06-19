@@ -14,6 +14,10 @@ public class AdministratorCommandService
 
     public async Task AddAdministratorAsync(Administrator administrator)
     {
+        if (await repository.EmaiAdministratorExistsAsync(administrator.Email))
+        {
+            throw new ArgumentException("An administrator with this email already exists.");
+        }
         await repository.AddAdministratorAsync(administrator);
     }
 

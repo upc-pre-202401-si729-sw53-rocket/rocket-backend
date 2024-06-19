@@ -45,4 +45,9 @@ public class AdministratorRepository
             await _context.SaveChangesAsync();
         }
     }
+    
+    public async Task<bool> EmaiAdministratorExistsAsync(string email)
+    {
+        return await _context.Administrators.AnyAsync(a => a.Email == email);
+    }
 }

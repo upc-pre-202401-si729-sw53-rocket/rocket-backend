@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\oficial\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj": {}
+    "C:\\Users\\PC\\Desktop\\tf-web-back\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\oficial\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj": {
+    "C:\\Users\\PC\\Desktop\\tf-web-back\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\oficial\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\tf-web-back\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj",
         "projectName": "ROCKET.RocketOrganizeBackend",
-        "projectPath": "C:\\Users\\PC\\Desktop\\oficial\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\tf-web-back\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\oficial\\rocket-backend\\ROCKET.RocketOrganizeBackend\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\tf-web-back\\rocket-backend\\ROCKET.RocketOrganizeBackend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

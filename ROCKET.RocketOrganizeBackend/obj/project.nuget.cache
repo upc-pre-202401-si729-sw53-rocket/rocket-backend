@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EyusNQBh33QCT9vsiPRVe7zoq89p3NLXas9vEsKj5CaCjkJHSQ0TnRIBgBJ1LgxxTW6CGomphcqnQ3YxWw5jSA==",
+  "dgSpecHash": "dY40FB3rbIRH4B3gFMgHUp2G/N8UkP4NW8/FidUxNRIjuo3yoik48dOMmnCODwI6a7IPSpFiCkAhph+qWWuI8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC\\Desktop\\oficial\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj",
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\tf-web-back\\rocket-backend\\ROCKET.RocketOrganizeBackend\\ROCKET.RocketOrganizeBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\entityframeworkcore.createdupdateddate\\8.0.0\\entityframeworkcore.createdupdateddate.8.0.0.nupkg.sha512",
