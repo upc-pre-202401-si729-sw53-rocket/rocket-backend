@@ -1,8 +1,10 @@
 namespace ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 [Table("administrators")]
+[Index(nameof(Email), IsUnique = true)]
 public class Administrator
 {
     [Key]

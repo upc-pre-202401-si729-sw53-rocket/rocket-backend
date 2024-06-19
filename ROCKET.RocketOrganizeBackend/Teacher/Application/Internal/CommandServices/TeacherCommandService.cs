@@ -14,6 +14,10 @@ public class TeacherCommandService
 
     public async Task AddTeacherAsync(Teacher teacher)
     {
+        if (await repository.EmailTeacherExistsAsync(teacher.Email))
+        {
+            throw new ArgumentException("A teacher with this email already exists.");
+        }
         await repository.AddTeacherAsync(teacher);
     }
 

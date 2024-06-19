@@ -45,4 +45,9 @@ public class TeacherRepository
             await _context.SaveChangesAsync();
         }
     }
+    
+    public async Task<bool> EmailTeacherExistsAsync(string email)
+    {
+        return await _context.Teachers.AnyAsync(t => t.Email == email);
+    }
 }

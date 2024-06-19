@@ -3,8 +3,10 @@ using System.Text.Json.Serialization;
 namespace ROCKET.RocketOrganizeBackend.Teacher.Domain.Model.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 [Table("teachers")]
+[Index(nameof(Email), IsUnique = true)]
 public class Teacher
 {
     [Key]
