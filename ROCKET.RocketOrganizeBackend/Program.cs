@@ -26,6 +26,11 @@ var DB_PASSWORD = Environment.GetEnvironmentVariable("DB_PASSWORD");
 var connectionString =
     $"database={DB_NAME};host={DB_HOST};port={DB_PORT};user={DB_USER};password={DB_PASSWORD};";
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("EnableCORS", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
+
 builder.Services.AddDbContext<ClassroomContext>(options =>
 {
     options.UseMySQL(connectionString);
@@ -230,6 +235,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors("EnableCORS");
 }
 else
 {
