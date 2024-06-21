@@ -239,9 +239,12 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
+    app.UseCors("EnableCORS");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("EnableCORS");
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
